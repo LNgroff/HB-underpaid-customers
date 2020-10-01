@@ -24,6 +24,23 @@ customer6_name = "Ashley"
 customer6_melons = 3
 customer6_paid = 2.00
 
+## creating a function to calculate which customers has underpaid
+def underpaid(name, melon_num, paid):
+    customer_order = open(customer-order.txt)
+
+    for line in customer_order:
+        order = line.split('|')
+
+        name = order[0]
+        melon_num = order[1]
+        paid = order[3]
+        
+        expected = melon_num * melon_cost
+        if expected != paid:
+            print(f"{name} paid ${paid},", f"expected ${expected:.2f}")
+        
+
+
 customer1_expected = customer1_melons * melon_cost
 if customer1_expected != customer1_paid:
     print(f"{customer1_name} paid ${customer1_paid:.2f},",
