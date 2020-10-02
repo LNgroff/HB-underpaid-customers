@@ -1,5 +1,34 @@
 melon_cost = 1.00
 
+
+## creating a function to calculate which customers has underpaid
+def underpaid(customer-orders.txt):
+    customer_order = open(customer-order.txt)
+    #opens the file with orders
+    
+    #iterate through each line/order in the file
+    for line in customer_order:
+        order = line.split('|')
+        #splits each order into "grabable" pieces, split by '|'
+
+        ord_num = order[0]
+        #identifies the line/order by number
+        name = order[1]
+        #identifies the second item as the customers 'name'
+        melon_num = float(order[2])
+        #identifies the third item as the number of melons bought 
+        paid = float(order[3])
+        #identifies fourth item as the amount that the customer paid
+        
+        expected = melon_num * melon_cost
+        if expected > paid:
+            print(f"{name} underpaid. They paid ${paid},", f"expected ${expected:.2f}")
+        if expected < paid:
+            print(f"{name} overpaid. They paid ${paid},", f"expected ${expected:.2f}")
+        
+underpaid("customer-orders.txt")
+
+'''
 customer1_name = "Joe"
 customer1_melons = 5
 customer1_paid = 5.00
@@ -24,21 +53,6 @@ customer6_name = "Ashley"
 customer6_melons = 3
 customer6_paid = 2.00
 
-## creating a function to calculate which customers has underpaid
-def underpaid(name, melon_num, paid):
-    customer_order = open(customer-order.txt)
-
-    for line in customer_order:
-        order = line.split('|')
-
-        name = order[0]
-        melon_num = order[1]
-        paid = order[3]
-        
-        expected = melon_num * melon_cost
-        if expected != paid:
-            print(f"{name} paid ${paid},", f"expected ${expected:.2f}")
-        
 
 
 customer1_expected = customer1_melons * melon_cost
@@ -76,3 +90,4 @@ if customer6_expected != customer6_paid:
     print(f"{customer6_name} paid ${customer6_paid:.2f},",
           f"expected ${customer6_expected:.2f}"
           )
+'''
