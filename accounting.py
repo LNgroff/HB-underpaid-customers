@@ -1,13 +1,15 @@
 melon_cost = 1.00
 
 
-## creating a function to calculate which customers has underpaid
 def order_history('customer-orders.txt'):
+## calculating who over or underpaid    
+    
     customer_order = open('customer-order.txt')
     #opens the file with orders
     
-    #iterate through each line/order in the file
     for line in customer_order:
+    #iterate through each line/order in the file
+        
         order = line.split('|')
         #splits each order into "grabable" pieces, split by '|'
 
@@ -22,20 +24,17 @@ def order_history('customer-orders.txt'):
         
         expected = melon_num * melon_cost
         #calculates how much the customer should have paid
-        
-        print(f"{name} paid ${paid:.2f}, they should have paid ${expected:.2f}")
-        #prints how much each customer paid and what they should have paid.
 
         if expected > paid:
-            #if they under paid, print the following
-            print(f"{name} underpaid.")
+            #if they underpaid, print the following
+            print(f"{name} paid ${paid:.2f}, we ${expected:.2f}. They underpaid.")
         elif expected < paid:
-           #if they over paid, print the following.
-            print(f"{name} overpaid.")
+           #if they overpaid, print the following.
+            print(f"{name} paid ${paid:.2f}, we ${expected:.2f}. They overpaid."
 
     customer_order.close()
 
-order_history("customer-orders.txt")
+order_history('customer-orders.txt')
 
 '''
 customer1_name = "Joe"
